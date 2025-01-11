@@ -1,0 +1,3019 @@
+var properties = {
+  scriptPath:
+    "https://f1stageaccountstorage.blob.core.windows.net/wholesalers/zorgboodschap/",
+  f1BaseApi: "https://www.f1-stage.com",
+  lpVisibility: true,
+  showProductsLP: true,
+  countryCode: "NL",
+  languageCode: "nl",
+  wholesalerCode: "ZORG",
+  hiddenWidgetEndpoints: ["/login"],
+  mainWidgetId: "div",
+  hideWidgetOnClosedCount: 1,
+  numberOfDaysToHideWidgetOnClosed: 999999,
+  hideCookSaveLogo: false,
+  mandatoryWidgetElementIds: ["check_box"],
+  numberOfDaysToClearLocalStorage: 1,
+};
+
+var languageCode = properties.languageCode;
+var countryCode = properties.countryCode;
+const wholesalerCode = properties.wholesalerCode;
+var language = languageCode.split("-")[0];
+language = language.trim();
+
+var mapper = {
+  products: [
+    {
+      ws_id: 2,
+      prod_id: -2135331292,
+    },
+    {
+      ws_id: 17,
+      prod_id: -1829368183,
+    },
+    {
+      ws_id: 27,
+      prod_id: -1648935172,
+    },
+    {
+      ws_id: 31,
+      prod_id: -1549916805,
+    },
+    {
+      ws_id: 35,
+      prod_id: -1493245420,
+    },
+    {
+      ws_id: 47,
+      prod_id: -1236537170,
+    },
+    {
+      ws_id: 49,
+      prod_id: -1218204315,
+    },
+    {
+      ws_id: 50,
+      prod_id: -1199777182,
+    },
+    {
+      ws_id: 55,
+      prod_id: -1150773554,
+    },
+    {
+      ws_id: 57,
+      prod_id: -1127997066,
+    },
+    {
+      ws_id: 67,
+      prod_id: -1038963318,
+    },
+    {
+      ws_id: 68,
+      prod_id: -1019863306,
+    },
+    {
+      ws_id: 87,
+      prod_id: -640575103,
+    },
+    {
+      ws_id: 88,
+      prod_id: -622058744,
+    },
+    {
+      ws_id: 99,
+      prod_id: -337257338,
+    },
+    {
+      ws_id: 102,
+      prod_id: -302872198,
+    },
+    {
+      ws_id: 113,
+      prod_id: -200677953,
+    },
+    {
+      ws_id: 239,
+      prod_id: 290,
+    },
+    {
+      ws_id: 288,
+      prod_id: 434,
+    },
+    {
+      ws_id: 331,
+      prod_id: 375363127,
+    },
+    {
+      ws_id: 332,
+      prod_id: 404603934,
+    },
+    {
+      ws_id: 336,
+      prod_id: 453498253,
+    },
+    {
+      ws_id: 344,
+      prod_id: 597022165,
+    },
+    {
+      ws_id: 351,
+      prod_id: 743543915,
+    },
+    {
+      ws_id: 352,
+      prod_id: 746403786,
+    },
+    {
+      ws_id: 354,
+      prod_id: 785152589,
+    },
+    {
+      ws_id: 355,
+      prod_id: 785282463,
+    },
+    {
+      ws_id: 371,
+      prod_id: 960595364,
+    },
+    {
+      ws_id: 437,
+      prod_id: 1317722823,
+    },
+    {
+      ws_id: 441,
+      prod_id: 1319189865,
+    },
+    {
+      ws_id: 442,
+      prod_id: 1319713721,
+    },
+    {
+      ws_id: 451,
+      prod_id: 1324030680,
+    },
+    {
+      ws_id: 458,
+      prod_id: 1326375647,
+    },
+    {
+      ws_id: 460,
+      prod_id: 1326898050,
+    },
+    {
+      ws_id: 477,
+      prod_id: 1328086051,
+    },
+    {
+      ws_id: 479,
+      prod_id: 1328432989,
+    },
+    {
+      ws_id: 480,
+      prod_id: 1328529015,
+    },
+    {
+      ws_id: 481,
+      prod_id: 1329221951,
+    },
+    {
+      ws_id: 510,
+      prod_id: 1350474734,
+    },
+    {
+      ws_id: 516,
+      prod_id: 1351069904,
+    },
+    {
+      ws_id: 540,
+      prod_id: 1391165951,
+    },
+    {
+      ws_id: 541,
+      prod_id: 1421424330,
+    },
+    {
+      ws_id: 546,
+      prod_id: 1547378921,
+    },
+    {
+      ws_id: 555,
+      prod_id: 1714352595,
+    },
+    {
+      ws_id: 557,
+      prod_id: 1731379785,
+    },
+    {
+      ws_id: 559,
+      prod_id: 1779460907,
+    },
+    {
+      ws_id: 561,
+      prod_id: 1814024407,
+    },
+    {
+      ws_id: 568,
+      prod_id: 1958508321,
+    },
+    {
+      ws_id: 576,
+      prod_id: 2093276079,
+    },
+    {
+      ws_id: 592,
+      prod_id: 2130225599,
+    },
+    {
+      ws_id: 613,
+      prod_id: 2130225633,
+    },
+    {
+      ws_id: 614,
+      prod_id: 2130225634,
+    },
+    {
+      ws_id: 625,
+      prod_id: 2130225654,
+    },
+    {
+      ws_id: 631,
+      prod_id: 2130225667,
+    },
+    {
+      ws_id: 635,
+      prod_id: 2130225672,
+    },
+    {
+      ws_id: 636,
+      prod_id: 2130225673,
+    },
+    {
+      ws_id: 645,
+      prod_id: 2130225689,
+    },
+    {
+      ws_id: 646,
+      prod_id: 2130225690,
+    },
+    {
+      ws_id: 655,
+      prod_id: 2130225703,
+    },
+    {
+      ws_id: 660,
+      prod_id: 2130225711,
+    },
+    {
+      ws_id: 661,
+      prod_id: 2130225712,
+    },
+    {
+      ws_id: 770,
+      prod_id: 2130225874,
+    },
+    {
+      ws_id: 924,
+      prod_id: 2130226097,
+    },
+    {
+      ws_id: 925,
+      prod_id: 2130226098,
+    },
+    {
+      ws_id: 926,
+      prod_id: 2130226099,
+    },
+    {
+      ws_id: 927,
+      prod_id: 2130226100,
+    },
+    {
+      ws_id: 928,
+      prod_id: 2130226101,
+    },
+    {
+      ws_id: 929,
+      prod_id: 2130226102,
+    },
+    {
+      ws_id: 930,
+      prod_id: 2130226103,
+    },
+    {
+      ws_id: 931,
+      prod_id: 2130226104,
+    },
+    {
+      ws_id: 932,
+      prod_id: 2130226105,
+    },
+    {
+      ws_id: 933,
+      prod_id: 2130226106,
+    },
+    {
+      ws_id: 934,
+      prod_id: 2130226107,
+    },
+    {
+      ws_id: 935,
+      prod_id: 2130226108,
+    },
+    {
+      ws_id: 936,
+      prod_id: 2130226109,
+    },
+    {
+      ws_id: 937,
+      prod_id: 2130226110,
+    },
+    {
+      ws_id: 938,
+      prod_id: 2130226111,
+    },
+    {
+      ws_id: 939,
+      prod_id: 2130226112,
+    },
+    {
+      ws_id: 940,
+      prod_id: 2130226113,
+    },
+    {
+      ws_id: 1024,
+      prod_id: 2130226225,
+    },
+    {
+      ws_id: 1031,
+      prod_id: 2130226233,
+    },
+    {
+      ws_id: 1058,
+      prod_id: 2130226266,
+    },
+    {
+      ws_id: 1059,
+      prod_id: 2130226267,
+    },
+    {
+      ws_id: 1060,
+      prod_id: 2130226270,
+    },
+    {
+      ws_id: 1061,
+      prod_id: 2130226271,
+    },
+    {
+      ws_id: 1062,
+      prod_id: 2130226273,
+    },
+    {
+      ws_id: 1063,
+      prod_id: 2130226274,
+    },
+    {
+      ws_id: 1064,
+      prod_id: 2130226275,
+    },
+    {
+      ws_id: 1065,
+      prod_id: 2130226276,
+    },
+    {
+      ws_id: 1066,
+      prod_id: 2130226278,
+    },
+    {
+      ws_id: 1067,
+      prod_id: 2130226279,
+    },
+    {
+      ws_id: 1068,
+      prod_id: 2130226280,
+    },
+    {
+      ws_id: 1069,
+      prod_id: 2130226281,
+    },
+    {
+      ws_id: 1070,
+      prod_id: 2130226283,
+    },
+    {
+      ws_id: 1071,
+      prod_id: 2130226284,
+    },
+    {
+      ws_id: 1072,
+      prod_id: 2130226285,
+    },
+    {
+      ws_id: 1073,
+      prod_id: 2130226286,
+    },
+    {
+      ws_id: 1074,
+      prod_id: 2130226292,
+    },
+    {
+      ws_id: 1075,
+      prod_id: 2130226295,
+    },
+    {
+      ws_id: 1076,
+      prod_id: 2130226297,
+    },
+    {
+      ws_id: 1077,
+      prod_id: 2130226298,
+    },
+    {
+      ws_id: 1078,
+      prod_id: 2130226299,
+    },
+    {
+      ws_id: 1087,
+      prod_id: 2130226314,
+    },
+    {
+      ws_id: 1090,
+      prod_id: 2130226318,
+    },
+    {
+      ws_id: 1092,
+      prod_id: 2130226321,
+    },
+    {
+      ws_id: 1093,
+      prod_id: 2130226322,
+    },
+    {
+      ws_id: 1095,
+      prod_id: 2130226326,
+    },
+    {
+      ws_id: 1096,
+      prod_id: 2130226327,
+    },
+    {
+      ws_id: 1097,
+      prod_id: 2130226328,
+    },
+    {
+      ws_id: 1098,
+      prod_id: 2130226330,
+    },
+    {
+      ws_id: 1099,
+      prod_id: 2130226331,
+    },
+    {
+      ws_id: 1100,
+      prod_id: 2130226332,
+    },
+    {
+      ws_id: 1102,
+      prod_id: 2130226335,
+    },
+    {
+      ws_id: 1103,
+      prod_id: 2130226337,
+    },
+    {
+      ws_id: 1106,
+      prod_id: 2130226353,
+    },
+    {
+      ws_id: 1107,
+      prod_id: 2130226354,
+    },
+    {
+      ws_id: 1108,
+      prod_id: 2130226355,
+    },
+    {
+      ws_id: 1109,
+      prod_id: 2130226356,
+    },
+    {
+      ws_id: 1110,
+      prod_id: 2130226358,
+    },
+    {
+      ws_id: 1113,
+      prod_id: 2130226361,
+    },
+    {
+      ws_id: 1114,
+      prod_id: 2130226362,
+    },
+    {
+      ws_id: 1115,
+      prod_id: 2130226363,
+    },
+    {
+      ws_id: 1116,
+      prod_id: 2130226364,
+    },
+    {
+      ws_id: 1117,
+      prod_id: 2130226366,
+    },
+    {
+      ws_id: 1118,
+      prod_id: 2130226367,
+    },
+    {
+      ws_id: 1120,
+      prod_id: 2130226369,
+    },
+    {
+      ws_id: 1121,
+      prod_id: 2130226371,
+    },
+    {
+      ws_id: 1122,
+      prod_id: 2130226373,
+    },
+    {
+      ws_id: 1124,
+      prod_id: 2130226375,
+    },
+    {
+      ws_id: 1125,
+      prod_id: 2130226376,
+    },
+    {
+      ws_id: 1152,
+      prod_id: 2130226416,
+    },
+    {
+      ws_id: 1153,
+      prod_id: 2130226417,
+    },
+    {
+      ws_id: 1155,
+      prod_id: 2130226420,
+    },
+    {
+      ws_id: 1156,
+      prod_id: 2130226421,
+    },
+    {
+      ws_id: 1157,
+      prod_id: 2130226422,
+    },
+    {
+      ws_id: 1158,
+      prod_id: 2130226424,
+    },
+    {
+      ws_id: 1159,
+      prod_id: 2130226425,
+    },
+    {
+      ws_id: 1160,
+      prod_id: 2130226427,
+    },
+    {
+      ws_id: 1161,
+      prod_id: 2130226429,
+    },
+    {
+      ws_id: 1162,
+      prod_id: 2130226430,
+    },
+    {
+      ws_id: 1163,
+      prod_id: 2130226431,
+    },
+    {
+      ws_id: 1164,
+      prod_id: 2130226433,
+    },
+    {
+      ws_id: 1172,
+      prod_id: 2130226442,
+    },
+    {
+      ws_id: 1187,
+      prod_id: 2130226461,
+    },
+    {
+      ws_id: 1191,
+      prod_id: 2130226471,
+    },
+    {
+      ws_id: 1192,
+      prod_id: 2130226472,
+    },
+    {
+      ws_id: 1193,
+      prod_id: 2130226474,
+    },
+    {
+      ws_id: 1199,
+      prod_id: 2130226482,
+    },
+    {
+      ws_id: 1200,
+      prod_id: 2130226485,
+    },
+    {
+      ws_id: 1201,
+      prod_id: 2130226486,
+    },
+    {
+      ws_id: 1202,
+      prod_id: 2130226487,
+    },
+    {
+      ws_id: 1203,
+      prod_id: 2130226488,
+    },
+    {
+      ws_id: 1204,
+      prod_id: 2130226489,
+    },
+    {
+      ws_id: 1205,
+      prod_id: 2130226490,
+    },
+    {
+      ws_id: 1206,
+      prod_id: 2130226492,
+    },
+    {
+      ws_id: 1207,
+      prod_id: 2130226493,
+    },
+    {
+      ws_id: 1208,
+      prod_id: 2130226494,
+    },
+    {
+      ws_id: 1209,
+      prod_id: 2130226495,
+    },
+    {
+      ws_id: 1210,
+      prod_id: 2130226496,
+    },
+    {
+      ws_id: 1211,
+      prod_id: 2130226497,
+    },
+    {
+      ws_id: 1212,
+      prod_id: 2130226498,
+    },
+    {
+      ws_id: 1213,
+      prod_id: 2130226499,
+    },
+    {
+      ws_id: 1219,
+      prod_id: 2130226509,
+    },
+    {
+      ws_id: 1220,
+      prod_id: 2130226510,
+    },
+    {
+      ws_id: 1221,
+      prod_id: 2130226511,
+    },
+    {
+      ws_id: 1235,
+      prod_id: 2130226535,
+    },
+    {
+      ws_id: 1236,
+      prod_id: 2130226536,
+    },
+    {
+      ws_id: 1244,
+      prod_id: 2130226551,
+    },
+    {
+      ws_id: 1246,
+      prod_id: 2130226554,
+    },
+    {
+      ws_id: 1247,
+      prod_id: 2130226555,
+    },
+    {
+      ws_id: 1256,
+      prod_id: 2130226567,
+    },
+    {
+      ws_id: 1265,
+      prod_id: 2130226577,
+    },
+    {
+      ws_id: 1267,
+      prod_id: 2130226579,
+    },
+    {
+      ws_id: 1275,
+      prod_id: 2130226591,
+    },
+    {
+      ws_id: 1279,
+      prod_id: 2130226595,
+    },
+    {
+      ws_id: 1290,
+      prod_id: 2130226609,
+    },
+    {
+      ws_id: 1295,
+      prod_id: 2130226620,
+    },
+    {
+      ws_id: 1296,
+      prod_id: 2130226622,
+    },
+    {
+      ws_id: 1297,
+      prod_id: 2130226623,
+    },
+    {
+      ws_id: 1298,
+      prod_id: 2130226627,
+    },
+    {
+      ws_id: 1313,
+      prod_id: 2130226645,
+    },
+    {
+      ws_id: 1319,
+      prod_id: 2130226651,
+    },
+    {
+      ws_id: 1324,
+      prod_id: 2130226657,
+    },
+    {
+      ws_id: 1330,
+      prod_id: 2130226665,
+    },
+    {
+      ws_id: 1339,
+      prod_id: 2130226678,
+    },
+    {
+      ws_id: 1340,
+      prod_id: 2130226679,
+    },
+    {
+      ws_id: 1434,
+      prod_id: 2130226801,
+    },
+    {
+      ws_id: 1435,
+      prod_id: 2130226802,
+    },
+    {
+      ws_id: 1441,
+      prod_id: 2130226810,
+    },
+    {
+      ws_id: 1444,
+      prod_id: 2130226813,
+    },
+    {
+      ws_id: 1445,
+      prod_id: 2130226814,
+    },
+    {
+      ws_id: 1449,
+      prod_id: 2130226823,
+    },
+    {
+      ws_id: 1456,
+      prod_id: 2130226842,
+    },
+    {
+      ws_id: 1457,
+      prod_id: 2130226843,
+    },
+    {
+      ws_id: 1460,
+      prod_id: 2130226848,
+    },
+    {
+      ws_id: 1487,
+      prod_id: 2130226891,
+    },
+    {
+      ws_id: 1488,
+      prod_id: 2130226892,
+    },
+    {
+      ws_id: 1501,
+      prod_id: 2130226917,
+    },
+    {
+      ws_id: 1502,
+      prod_id: 2130226918,
+    },
+    {
+      ws_id: 1510,
+      prod_id: 2130226929,
+    },
+    {
+      ws_id: 1527,
+      prod_id: 2130226976,
+    },
+    {
+      ws_id: 1537,
+      prod_id: 2130226996,
+    },
+    {
+      ws_id: 1539,
+      prod_id: 2130226998,
+    },
+    {
+      ws_id: 1559,
+      prod_id: 2130227031,
+    },
+    {
+      ws_id: 1560,
+      prod_id: 2130227032,
+    },
+    {
+      ws_id: 1586,
+      prod_id: 2130227073,
+    },
+    {
+      ws_id: 1608,
+      prod_id: 2130227104,
+    },
+    {
+      ws_id: 1641,
+      prod_id: 2130227156,
+    },
+    {
+      ws_id: 1662,
+      prod_id: 2130227194,
+    },
+    {
+      ws_id: 1681,
+      prod_id: 2130227223,
+    },
+    {
+      ws_id: 1761,
+      prod_id: 2130227375,
+    },
+    {
+      ws_id: 1771,
+      prod_id: 2130227392,
+    },
+    {
+      ws_id: 1780,
+      prod_id: 2130227404,
+    },
+    {
+      ws_id: 1850,
+      prod_id: 2130227512,
+    },
+    {
+      ws_id: 1851,
+      prod_id: 2130227513,
+    },
+    {
+      ws_id: 1852,
+      prod_id: 2130227515,
+    },
+    {
+      ws_id: 1892,
+      prod_id: 2130227594,
+    },
+    {
+      ws_id: 1959,
+      prod_id: 2130227703,
+    },
+    {
+      ws_id: 1990,
+      prod_id: 2130227763,
+    },
+    {
+      ws_id: 2066,
+      prod_id: 2130227893,
+    },
+    {
+      ws_id: 2077,
+      prod_id: 2130227911,
+    },
+    {
+      ws_id: 2083,
+      prod_id: 2130227920,
+    },
+    {
+      ws_id: 2084,
+      prod_id: 2130227921,
+    },
+    {
+      ws_id: 2085,
+      prod_id: 2130227922,
+    },
+    {
+      ws_id: 2100,
+      prod_id: 2130227940,
+    },
+    {
+      ws_id: 2140,
+      prod_id: 2130228021,
+    },
+    {
+      ws_id: 2146,
+      prod_id: 2130228028,
+    },
+    {
+      ws_id: 2237,
+      prod_id: 2130228170,
+    },
+    {
+      ws_id: 2238,
+      prod_id: 2130228172,
+    },
+    {
+      ws_id: 2259,
+      prod_id: 2130228201,
+    },
+    {
+      ws_id: 2355,
+      prod_id: 2130228373,
+    },
+    {
+      ws_id: 2374,
+      prod_id: 2130228400,
+    },
+    {
+      ws_id: 2392,
+      prod_id: 2130228425,
+    },
+    {
+      ws_id: 2437,
+      prod_id: 2130228494,
+    },
+    {
+      ws_id: 2438,
+      prod_id: 2130228495,
+    },
+    {
+      ws_id: 2453,
+      prod_id: 2130228518,
+    },
+    {
+      ws_id: 2508,
+      prod_id: 2130228612,
+    },
+    {
+      ws_id: 2605,
+      prod_id: 2130228773,
+    },
+    {
+      ws_id: 2608,
+      prod_id: 2130228777,
+    },
+    {
+      ws_id: 2665,
+      prod_id: 2130228868,
+    },
+    {
+      ws_id: 2679,
+      prod_id: 2130228886,
+    },
+    {
+      ws_id: 2779,
+      prod_id: 2130229035,
+    },
+    {
+      ws_id: 2859,
+      prod_id: 2130229153,
+    },
+    {
+      ws_id: 3130,
+      prod_id: 2130229554,
+    },
+    {
+      ws_id: 3141,
+      prod_id: 2130229570,
+    },
+    {
+      ws_id: 3142,
+      prod_id: 2130229571,
+    },
+    {
+      ws_id: 3143,
+      prod_id: 2130229572,
+    },
+    {
+      ws_id: 3152,
+      prod_id: 2130229582,
+    },
+    {
+      ws_id: 3202,
+      prod_id: 2130229633,
+    },
+    {
+      ws_id: 3237,
+      prod_id: 2130229676,
+    },
+    {
+      ws_id: 3386,
+      prod_id: 964922220,
+    },
+    {
+      ws_id: 3400,
+      prod_id: -1933977660,
+    },
+    {
+      ws_id: 3417,
+      prod_id: 2130227277,
+    },
+    {
+      ws_id: 3491,
+      prod_id: 2130229856,
+    },
+    {
+      ws_id: 3492,
+      prod_id: 2130229857,
+    },
+    {
+      ws_id: 3494,
+      prod_id: 2130229859,
+    },
+    {
+      ws_id: 3549,
+      prod_id: 2130229899,
+    },
+    {
+      ws_id: 3591,
+      prod_id: 2130229925,
+    },
+    {
+      ws_id: 3620,
+      prod_id: 2130229949,
+    },
+  ],
+};
+
+
+
+function collectCartProductCodes(){
+    let productCodes = [];
+    let lineItemDetailContainers = document.querySelectorAll(".line-item-details-container");
+    lineItemDetailContainers.forEach(function(lineItemDetail){
+        let productCode = lineItemDetail.querySelector("a").getAttribute("href").split("/")[4];
+        productCode = productCode.split("?")[0];
+        productCodes.push(productCode);
+    });
+    return productCodes;
+}
+
+
+function showBubblesOnCartItems(productCodes){
+     callLoyaltyPointsApi(productCodes,properties.wholesalerCode,"cart");
+}
+
+function saveCartProductInLocalStorage(){
+  let data = [];
+  let lineItemProducts = document.querySelectorAll(".line-item-product");
+  lineItemProducts.forEach(function(wholesalerProduct){
+    let productCode = wholesalerProduct
+    .querySelector(".line-item-details-container")
+    .querySelector("a")
+    .getAttribute("href")
+    .split("/")[4]
+    .split("?")[0];
+
+    let productName = wholesalerProduct
+    .querySelector(".line-item-details-container")
+    .querySelector("a")
+    .getAttribute("title");
+
+    let productUnit = wholesalerProduct
+    .querySelector(".line-item-details-container")
+    .querySelector(".line-item-packaging-value")
+    .innerText.split(" ")[0];
+
+    if(productUnit === "DS"){
+      productUnit = "DU";
+    }else{
+      productUnit = "CU";
+    }
+
+    let quantity = wholesalerProduct
+    .querySelector(".line-item-quantity")
+    .querySelector(".line-item-quantity__input-placeholder")
+    .innerText;
+
+    let productObj = {
+      "productCode":productCode, 
+      "productName":productName, 
+      "quantity":quantity, 
+      "productUnit":productUnit
+    };
+    data.push(productObj);
+  
+  });
+
+  localStorage.setItem("data",data);
+}
+
+function loyaltyPointsResponseUiForCartPage(){
+	  const defaultValue = "loading..";
+    const loyaltyPointsTextPattern = localStorage.getItem("loyaltyPointsTextPattern");
+    const abc =`<div class="mytooltip">      
+  <div class="lp-bubbles-block">
+      <div class="lp-bubbles-text">
+        <span class="lp-value">${defaultValue}</span>
+      </div>
+    </div>    
+    </div>`;
+
+    
+    let lineItemProducts = document.querySelectorAll(".line-item-product");
+    
+    for (var i = 0; i < lineItemProducts.length; i++) {
+      var productCode = lineItemProducts[i]
+      .querySelector(".line-item-details-container")
+      .querySelector("a")
+      .getAttribute("href")
+      .split("/")[4]
+      .split("?")[0];
+
+      var productUnit = lineItemProducts[i]
+      .querySelector(".line-item-packaging-value")
+      .innerText.split(" ")[0];
+
+      if(productUnit === "DS" ){
+        productUnit = "DU";
+      }else{
+        productUnit = "CU";
+      }
+
+      //get the loyaltypoints and display on the cart products
+      let loyaltyPoint = extractLoyaltyPointsBasedOnProductUnit(productCode, productUnit);
+			var productImage = lineItemProducts[i].querySelector(".line-item-info-img");
+console.log(productImage);
+      productImage.insertAdjacentHTML("afterbegin", abc);
+      if (document.getElementsByClassName("mytooltip")[i] == null) {
+        productBox[i]
+          .insertAdjacentHTML("afterbegin", abc);
+      }
+      document.getElementsByClassName("lp-value")[i].innerText =
+        " " + loyaltyPoint.toString();
+      //if (loyaltyPoint === 0) {
+        //document.getElementsByClassName("mytooltip")[i].style["display"] = "none";
+      //}
+      document
+        .getElementsByClassName("mytooltip")
+        [
+          i
+        ].insertAdjacentHTML("beforeend", getLoyaltyPointsTextTag(loyaltyPointsTextPattern, loyaltyPoint));
+    }
+}
+
+function extractLoyaltyPointsBasedOnProductUnit(productCode, productUnit){
+   let lpData = JSON.parse(localStorage.getItem("loyaltyPointsData"));
+
+   for (let i = 0; i < lpData.length; i++) {
+       if(lpData[i].wsProductCode === productCode){
+        if(productUnit==="CU"){
+            return lpData[i].singleItemLoyaltyPoints;
+        }
+        return lpData[i].cartonItemLoyaltyPoints;
+       }
+   }
+}
+
+
+function loadLoyaltyPointsForUnileverProducts() {
+    let productBox = document.querySelectorAll(".product-box");
+    let index = 0;
+    let wholesalerProductCodes = [];
+    productBox.forEach(function(element){
+      wholesalerProductCode = getWholesalerProductCodeForZorg(element);
+      wholesalerProductCodes[index]=wholesalerProductCode;
+      index++; 
+    });
+    callLoyaltyPointsApi(wholesalerProductCodes, properties.wholesalerCode);
+}
+
+function getWholesalerProductCodeForZorg(htmlElementForWholesalerProduct){
+    let wholesalerProductCode = null;
+    if(htmlElementForWholesalerProduct.querySelector(".h-100")!=null){
+      wholesalerProductCode = 
+      htmlElementForWholesalerProduct
+      .querySelector(".h-100")
+      .querySelector("img")
+		//	.querySelector("source")[0]
+      .getAttribute("src")
+      .split("/")[6]
+      .split("-")[0];
+    }
+    return wholesalerProductCode;
+}
+
+function loyaltyPointsResponseUi(response) {
+	  const defaultValue = "loading..";
+    const loyaltyPointsTextPattern = localStorage.getItem("loyaltyPointsTextPattern");
+    const abc =`<div class="mytooltip">      
+  <div class="lp-bubbles-block">
+      <div class="lp-bubbles-text">
+        <span class="lp-value">${defaultValue}</span>
+      </div>
+    </div>    
+    </div>`;
+    var productBox = document.querySelectorAll(".product-box");
+    for (var i = 0; i < productBox.length; i++) {
+      var productCode = productBox[i]
+       .querySelector(".h-100")
+      .querySelector("img")
+		//	.querySelector("source")[0]
+      .getAttribute("src")
+      .split("/")[6]
+      .split("-")[0];
+      
+      var loyaltyPoint = extractSingleItemLoyaltyPoints(productCode, response);
+
+var productImage = productBox[i].querySelector(".card-body");
+console.log(productImage);
+      productImage.insertAdjacentHTML("afterbegin", abc);
+      if (document.getElementsByClassName("mytooltip")[i] == null) {
+        productBox[i]
+          .insertAdjacentHTML("afterbegin", abc);
+      }
+      document.getElementsByClassName("lp-value")[i].innerText =
+        " " + loyaltyPoint.toString();
+      if (loyaltyPoint === 0) {
+        document.getElementsByClassName("mytooltip")[i].style["display"] = "none";
+      }
+      document
+        .getElementsByClassName("mytooltip")
+        [
+          i
+        ].insertAdjacentHTML("beforeend", getLoyaltyPointsTextTag(loyaltyPointsTextPattern, loyaltyPoint));
+    }
+  }
+  
+// ================================== Order api call ==========================================
+function callOrderApi(
+  countryCode,
+  language,
+  wholesalerCode,
+  orderNumber,
+  customerId,
+  handleWholesalerCodeSpecificLogic,
+) {
+  let order_data = JSON.parse(localStorage.getItem("data"));
+  if (order_data.length > 0) {
+    let orderData = prepareOrderData(
+      countryCode,
+      language,
+      wholesalerCode,
+      orderNumber,
+      order_data,
+    );
+
+    let duplicatedOrder = false; //  setting a flag to avoid the duplication data entry
+    if (localStorage.getItem("duplicateOrderNumber") === null) {
+      localStorage.setItem("duplicateOrderNumber", orderData.orderId);
+      duplicatedOrder = localStorage.getItem("duplicateOrderNumber");
+    } else {
+      let currentOrderNumber = localStorage.getItem("duplicateOrderNumber");
+      if (orderData.orderId != currentOrderNumber) {
+        localStorage.setItem("duplicateOrderNumber", orderData.orderId);
+        duplicatedOrder = true;
+      }
+    }
+
+    if (duplicatedOrder != "undefined" || duplicatedOrder.length > 1) {
+      let xmlHttpRequest = new XMLHttpRequest(); // new HttpRequest instance
+      let theUrl = properties.f1BaseApi + "/order";
+      xmlHttpRequest.open("POST", theUrl);
+      xmlHttpRequest.setRequestHeader("Content-Type", "application/json");
+      xmlHttpRequest.setRequestHeader("Access-Control-Allow-Origin", "true");
+      console.log(JSON.stringify(orderData));
+      xmlHttpRequest.send(JSON.stringify(orderData));
+      xmlHttpRequest.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 202) {
+          handleWholesalerCodeSpecificLogic(orderData);
+        }
+      };
+    }
+  }
+}
+// ================================== Order Data Pereparation ==============================
+function prepareOrderData(
+  countryCode,
+  language,
+  wholesalerCode,
+  orderNumber,
+  orderData,
+) {
+  let orderDataRequest = {};
+  let products = [];
+  orderDataRequest.countryCode =
+    countryCode != null ? countryCode : orderData[0].countryCode;
+  orderDataRequest.languageCode =
+    language != null ? language : orderData[0].language;
+  orderDataRequest.orderId =
+    orderNumber != null ? orderNumber : orderData[0].orderNumber;
+  orderDataRequest.email = localStorage.getItem("email");
+  orderDataRequest.wholesalerCode =
+    wholesalerCode != null ? wholesalerCode : orderData[0].wholesalerCode;
+  orderData.forEach((element) => {
+    let productDto = {};
+    productDto.productName = element.productName;
+    productDto.quantity = element.quantity;
+    productDto.productCode = element.productCode;
+    productDto.productUnit = element.productUnit;
+    products.push(productDto);
+  });
+  orderDataRequest.products = products;
+  return orderDataRequest;
+}
+
+// ================================== Customer Loyalty Points api call ==========================================
+
+function callcustomerLoyaltyPointsApi(orderData) {
+  lpInvokeCount++;
+  console.log(lpInvokeCount + " Loading Loyalty Points");
+  let customerId = "";
+  if (localStorage.getItem("customerId") != null) {
+    customerId = localStorage.getItem("customerId");
+  }
+  let orderNumber = orderData.orderId;
+  let email = localStorage.getItem("email");
+  var xmlhttp = new XMLHttpRequest();
+  var theUrl =
+    properties.f1BaseApi +
+    "/loyalty-points/customer?customerId=" +
+    customerId +
+    "&email=" +
+    email +
+    "&orderId=" +
+    orderNumber;
+  xmlhttp.open("GET", theUrl);
+  xmlhttp.send();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+      var response = JSON.parse(this.responseText);
+      let lp = getTotalLoyaltyPoint(orderData);
+      if (response.currentOrderLoyaltyPoint === lp) {
+        showTotalAndCurrentOrderLoyaltyPoint(orderData.languageCode, response);
+        lpInvokeCount = 0;
+      } else if (lpInvokeCount <= 5) {
+        invokeLoyaltyPointsApiRepeatedly(orderData);
+      } else {
+        lpInvokeCount = 0;
+        document.querySelector(".total_loyalty_points").textContent =
+          "Failed to load earned loyalty points. Please check your email.";
+      }
+    }
+  };
+}
+
+function callcustomerLoyaltyPointsApiBe(orderData) {
+  switch (language) {
+    case "fr":
+      widgetText = widgetTexts.be_fr;
+      break;
+    case "en":
+      widgetText = widgetTexts.be_en;
+      break;
+    default:
+      widgetText = widgetTexts.be_nl;
+  }
+  lpInvokeCount++;
+  console.log(lpInvokeCount + " Loading Loyalty Points");
+  let customerId = "";
+  if (localStorage.getItem("customerId") != null) {
+    customerId = localStorage.getItem("customerId");
+  }
+  let orderNumber = orderData.orderId;
+  let email = localStorage.getItem("email");
+  var xmlhttp = new XMLHttpRequest();
+  var theUrl =
+    properties.f1BaseApi +
+    "/loyalty-points/customer?customerId=" +
+    customerId +
+    "&email=" +
+    email +
+    "&orderId=" +
+    orderNumber;
+
+  const HTTP_TIMEOUT = apiConfig.HTTP_TIMEOUT;
+  const URL =
+    properties.f1BaseApi +
+    "/loyalty-points/customer?customerId=" +
+    customerId +
+    "&email=" +
+    email +
+    "&orderId=" +
+    orderNumber;
+  let scriptPath = properties.scriptPath;
+  scriptPath = scriptPath.split("/");
+  let url = scriptPath[0] + "//" + scriptPath[2];
+  (async () => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), HTTP_TIMEOUT);
+
+    try {
+      const response = await fetch(URL, {
+        signal: controller.signal,
+      }).then((res) => res.json());
+      console.log(response);
+      const element = document.getElementById("lp-loader");
+      element.classList.add("hide-cls");
+      const ele = document.getElementById("loading-block");
+      ele.classList.remove("hide-cls");
+
+      var elem = document.getElementById("file");
+      elem.style.width = cssConfig.maxWidth + "%";
+      elem.setAttribute("max", cssConfig.maxWidth);
+      var width = 1;
+      let setflag = false;
+      var id = setInterval(frame, apiConfig.minInterval);
+      function frame() {
+        if (width >= cssConfig.maxWidth) {
+          setflag = true;
+          clearInterval(id);
+          if (setflag == true) {
+            let lp = getTotalLoyaltyPoint(orderData);
+            if (response.currentOrderLoyaltyPoint === lp) {
+              showTotalAndCurrentOrderLoyaltyPointBe(
+                orderData.languageCode,
+                response,
+              );
+              lpInvokeCount = apiConfig.MinInvokeCount;
+            } else if (lpInvokeCount <= apiConfig.MaxInvokeCount) {
+              invokeLoyaltyPointsApiRepeatedly(orderData);
+            } else {
+              lpInvokeCount = apiConfig.MinInvokeCount;
+              document.getElementById("expand-final").innerHTML =
+                `  <div class="widget-text-cls">
+          <img class="success" src="${url}/images/alert.svg" alt="success">
+          <p class="success-points">${widgetText.failedText}</p>
+        </div>
+        <div class="widget-form-cls">
+          <div class="success-block-cls">
+            <p class="redeem-block-cls" id="unimsg">
+              Please
+              <a href="#" title="unileverfoodsolutions">check your mailbox</a>
+              to review your points
+            </p>
+          </div>
+        </div>
+        <div class="widget-footer-cls"></div>`;
+              document.getElementById("unimsg").innerHTML = widgetText.loyalRes;
+            }
+          }
+        } else {
+          setflag = false;
+          width++;
+          elem.setAttribute("value", width);
+        }
+      }
+    } catch (error) {
+      console.error(error);
+      document.getElementById("expand-final").innerHTML =
+        `  <div class="widget-text-cls">
+          <img class="success" src="${url}/images/alert.svg" alt="success">
+          <p class="success-points">${widgetText.failedText}</p>
+        </div>
+        <div class="widget-form-cls">
+          <div class="success-block-cls">
+            <p class="redeem-block-cls" id="unimsg">
+              Please
+              <a href="#" title="unileverfoodsolutions">check your mailbox</a>
+              to review your points
+            </p>
+          </div>
+        </div>
+        <div class="widget-footer-cls"></div>`;
+      document.getElementById("unimsg").innerHTML = widgetText.loyalRes;
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  })();
+}
+
+// ================================== Loyalty Points api call ==========================================
+
+function callLoyaltyPointsApi(productIds, wsCode, page) {
+  if (productIds.length > 0) {
+    const showProductsLp = properties.showProductsLP;
+    var xmlhttp = new XMLHttpRequest();
+    var theUrl =
+      properties.f1BaseApi + "/loyalty-points/product?wholesalerCode=" + wsCode;
+    xmlhttp.open("POST", theUrl);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.send(JSON.stringify(productIds));
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState === 4 && this.status === 200) {
+        var response = JSON.parse(this.responseText);
+        localStorage.setItem("loyaltyPointsData", JSON.stringify(response));
+        console.log(response);
+        if (showProductsLp == true) {
+          if (page == "cart") {
+            loyaltyPointsResponseUiForCartPage();
+          } else if (page !== "Warenkorb") {
+            loyaltyPointsResponseUi(response);
+          }
+        }
+      }
+    };
+  }
+}
+
+// ================================== Register api call ==========================================
+
+function registerUser(userId, business_name) {
+  let subscription = document.getElementById("check_box1").checked;
+  localStorage.removeItem("email");
+  localStorage.setItem("email", userId);
+  localStorage.setItem("business_name", business_name);
+  callRegisterUserApi(
+    prepareRegistrationDataJSON(
+      countryCode,
+      userId,
+      business_name,
+      language,
+      wholesalerCode,
+      subscription,
+      localStorage.getItem("customerId"),
+    ),
+    function () {
+      var response = this.responseText;
+      localStorage.setItem("enrolled", true);
+      localStorage.setItem("registeredDate", new Date());
+      minimizeWidget();
+    },
+  );
+}
+function callRegisterUserApi(
+  register_data,
+  handleWholesalerSpecificLogicForRegistration,
+) {
+  var xmhttp = new XMLHttpRequest();
+  var theUrl = properties.f1BaseApi + "/user/register";
+  xmhttp.open("POST", theUrl);
+  xmhttp.setRequestHeader("Content-Type", "application/json");
+  xmhttp.setRequestHeader("Access-Control-Allow-Origin", "true");
+  xmhttp.send(JSON.stringify(register_data));
+  xmhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 202) {
+      console.log("User Registration Request has been accepted");
+      handleWholesalerSpecificLogicForRegistration();
+    }
+  };
+}
+
+// ================================== Widget api call ==========================================
+
+function callLoyaltyWidgetApi(
+  wholesalerCode,
+  language,
+  handleWholesalerSpecificLogicForLoyaltyWidget,
+) {
+  var xmlhttp = new XMLHttpRequest();
+  var theUrl =
+    properties.f1BaseApi +
+    "/widget?wholesalerCode=" +
+    wholesalerCode +
+    "&languageCode=" +
+    language;
+  xmlhttp.open("GET", theUrl);
+  xmlhttp.send();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+      var response = JSON.parse(this.responseText);
+      handleWholesalerSpecificLogicForLoyaltyWidget(response);
+    }
+  };
+}
+
+function generateOrderNumber(wholesaleCode, countryCode) {
+  var dateTimeInMillis = new Date();
+  var orderNumber =
+    wholesaleCode +
+    "_" +
+    countryCode +
+    Math.floor(
+      dateTimeInMillis.toISOString().replace(/-|:|T|Z|/g, "") *
+        Math.random() *
+        1000,
+    );
+  return orderNumber;
+}
+
+var widgetClosedCount = localStorage.getItem("widgetClosedCount");
+if (widgetClosedCount == null) {
+  widgetClosedCount = 0;
+}
+
+var hideWidgetOnClosedCount = properties.hideWidgetOnClosedCount;
+var numberOfDaysToHideWidgetOnClosed =
+  properties.numberOfDaysToHideWidgetOnClosed;
+
+var numberOfDaysToClearLocalStorage =
+  properties.numberOfDaysToClearLocalStorage;
+
+// ================================== loyalty points common method calls ==========================================
+
+function extractSingleItemLoyaltyPoints(product, loyaltyPointsData) {
+  for (let i = 0; i < loyaltyPointsData.length; i++) {
+    if (loyaltyPointsData[i].wsProductCode === product) {
+      return loyaltyPointsData[i].singleItemLoyaltyPoints;
+    }
+  }
+  return 0;
+}
+
+function extractSingleItemLoyaltyPointsForQuantity(productCode, quantity) {
+  const loyaltyPointsData = JSON.parse(
+    localStorage.getItem("loyaltyPointsData"),
+  );
+  if (loyaltyPointsData != null && loyaltyPointsData != undefined) {
+    for (let i = 0; i < loyaltyPointsData.length; i++) {
+      if (loyaltyPointsData[i].wsProductCode === productCode) {
+        return loyaltyPointsData[i].singleItemLoyaltyPoints * quantity;
+      }
+    }
+  }
+  return 0;
+}
+
+function extractCartonItemLoyaltyPoints(product, loyaltyPointsData) {
+  for (let i = 0; i < loyaltyPointsData.length; i++) {
+    if (loyaltyPointsData[i].wsProductCode === product) {
+      return loyaltyPointsData[i].cartonItemLoyaltyPoints;
+    }
+  }
+  return 0;
+}
+
+function extractCartonItemLoyaltyPointsForQuantity(productCode, quantity) {
+  const loyaltyPointsData = JSON.parse(
+    localStorage.getItem("loyaltyPointsData"),
+  );
+  if (loyaltyPointsData != null && loyaltyPointsData != undefined) {
+    for (let i = 0; i < loyaltyPointsData.length; i++) {
+      if (loyaltyPointsData[i].wsProductCode === productCode) {
+        return loyaltyPointsData[i].cartonItemLoyaltyPoints * quantity;
+      }
+    }
+  }
+  return 0;
+}
+
+function extractData(order_data, order_number) {
+  document.getElementById("div").style["display"] = "none";
+  order_data.forEach(function (ele) {
+    ele.orderNumber = order_number;
+  });
+  localStorage.removeItem("data");
+  localStorage.setItem("data", JSON.stringify(order_data));
+}
+
+function getLoyaltyPoint(productId, response) {
+  const lpData = JSON.parse(localStorage.getItem("loyaltyPointsData"));
+  for (let i = 0; i < lpData.length; i++) {
+    if (lpData[i].wsProductCode === productId) {
+      return lpData[i].singleItemLoyaltyPoints;
+    }
+  }
+  return 0;
+}
+
+function getLoyaltyPointsTextTag(loyaltyPointsTextPattern, loyaltypoints) {
+  return (
+    '<span class="mytext">' +
+    getLoyaltyPointsText(loyaltyPointsTextPattern, loyaltypoints) +
+    "</span>"
+  );
+}
+
+function getLoyaltyPointsText(loyaltyPointsTextPattern, loyaltypoints) {
+  return loyaltyPointsTextPattern.replace("{0}", loyaltypoints);
+}
+
+function showTotalAndCurrentOrderLoyaltyPoint(language, response) {
+  let txt1, txt2, txt3;
+  if (language === "fr") {
+    txt1 = "Toutes nos félicitations!! Vous avez gagné ";
+    txt2 = "points avec cette commande.";
+    txt3 = "Le total des points gagnés est maintenant ";
+  } else if (language === "nl") {
+    txt1 = "Gefeliciteerd!! Je hebt ";
+    txt2 = "punten verdiend met deze bestelling.";
+    txt3 = "Totaal verdiende punten is nu ";
+  } else if (language === "de") {
+    txt1 = "Dieses Produkt verdient Sie ";
+    txt2 = "Treuepunkte.";
+    txt3 = "Die Gesamtpunktzahl beträgt jetzt";
+  } else {
+    txt1 = "Congratulations!! You have earned ";
+    txt2 = "points with this order.";
+    txt3 = "Total points earned is now ";
+  }
+
+  let totalLpText = document.querySelector(".total_lp_text");
+  if (totalLpText != null && totalLpText != undefined) {
+    document.querySelector(".total_lp_text").remove();
+  }
+  const lpElement = document.querySelector(".total_loyalty_points");
+  if (lpElement != null && lpElement != undefined) {
+    document.querySelector(".total_loyalty_points").textContent = "";
+    document.getElementsByClassName("total_loyalty_points")[0].style[
+      "display"
+    ] = "block";
+    document
+      .querySelector(".total_loyalty_points")
+      .insertAdjacentHTML(
+        "beforeend",
+        '<p class="total_lp_text"><i class="fa-solid fa-gift fa-beat-fade"></i>' +
+          "    " +
+          txt1 +
+          " " +
+          response.currentOrderLoyaltyPoint +
+          " " +
+          txt2 +
+          "<br>" +
+          '<i class="fa-solid fa-hand-holding-dollar"></i>' +
+          "   " +
+          txt3 +
+          " " +
+          response.totalLoyaltyPoint +
+          "   " +
+          '<i class="fa-solid fa-hand-holding-dollar fa-flip-horizontal"></i>' +
+          "</p>",
+      );
+  } else {
+    document.getElementsByClassName("total_loyalty_points")[0].style[
+      "display"
+    ] = "none";
+  }
+}
+
+function showTotalAndCurrentOrderLoyaltyPointBe(language, response) {
+  let widgetText;
+  switch (language) {
+    case "fr":
+      widgetText = widgetTexts.be_fr;
+      break;
+    case "en":
+      widgetText = widgetTexts.be_en;
+      break;
+    default:
+      widgetText = widgetTexts.be_nl;
+  }
+  let totalLpText = document.querySelector(".total_lp_text");
+
+  if (totalLpText != null && totalLpText != undefined) {
+    document.querySelector(".total_lp_text").remove();
+  }
+  const lpElement = document.querySelector(".total_loyalty_points");
+  let scriptPath = properties.scriptPath;
+  scriptPath = scriptPath.split("/");
+  let url = scriptPath[0] + "//" + scriptPath[2];
+  document.getElementById("expand-final").innerHTML = "";
+  document.getElementById("expand-final").insertAdjacentHTML(
+    "beforeend",
+    `<div class="widget-text-cls">
+          <img class="success" src="${url}/images/success.svg" alt="success">
+          <p class="success-points">+${response.currentOrderLoyaltyPoint} points!</p>
+        </div>
+        <div class="widget-form-cls">
+          <div class="success-block-cls">
+            ${widgetText.successText}<strong>${response.totalLoyaltyPoint}</strong>
+          </div>
+        </div>
+        <div class="widget-footer-cls">
+          <p class="redeem-block-cls" id="unimsg">
+            Visit
+            <a href="#" title="unileverfoodsolutions">unileverfoodsolutions.be</a>
+            to redeem your loyalty program points
+          </p>
+        </div>      
+	 `,
+  );
+  document.getElementById("unimsg").innerHTML = widgetText.loyalRes;
+}
+
+function observeUrlAndHideWidget(hiddenWidgetEndpoints, id) {
+  const observer = new MutationObserver(function (mutations) {
+    let exists = hiddenWidgetEndpoints.some((endpoint) =>
+      location.href.includes(endpoint),
+    );
+    if (exists) {
+      hideElementWithId(id);
+    }
+  });
+  const config = { subtree: true, childList: true };
+  observer.observe(document, config);
+}
+
+function hideElementWithId(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+function closeWidget() {
+  document.getElementById("div").style["display"] = "none";
+  localStorage.setItem("removed", true);
+  localStorage.setItem("widgetClosedDate", new Date());
+  widgetClosedCount = parseInt(widgetClosedCount) + 1;
+  localStorage.setItem("widgetClosedCount", widgetClosedCount);
+}
+
+function hideWidgetOnClosed() {
+  var dateToday = new Date();
+  var hideWidgetOnClosedExpDate = new Date(
+    localStorage.getItem("widgetClosedDate"),
+  );
+
+  hideWidgetOnClosedExpDate.setDate(
+    hideWidgetOnClosedExpDate.getDate() +
+      parseInt(numberOfDaysToHideWidgetOnClosed),
+  );
+
+  if (
+    widgetClosedCount >= hideWidgetOnClosedCount &&
+    dateToday <= hideWidgetOnClosedExpDate
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+if (checkLocalStorageExpiry()) {
+  clearLocalStorage();
+}
+
+function checkLocalStorageExpiry() {
+  if (localStorage.getItem("registeredDate") != null) {
+    var dateToday = new Date();
+    var localStorageExpDate = new Date(localStorage.getItem("registeredDate"));
+    localStorageExpDate.setDate(
+      localStorageExpDate.getDate() + parseInt(numberOfDaysToClearLocalStorage),
+    );
+    if (dateToday >= localStorageExpDate) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+function clearLocalStorage() {
+  localStorage.removeItem("data");
+  localStorage.removeItem("show_widget");
+  localStorage.removeItem("cartData");
+  localStorage.removeItem("productData");
+  localStorage.removeItem("email");
+  localStorage.removeItem("business_name");
+  localStorage.removeItem("enrolled");
+  localStorage.removeItem("isOrderSubmitted");
+  localStorage.removeItem("cart-products-count");
+  localStorage.removeItem("isOrderSuccess");
+  localStorage.removeItem("removed");
+  localStorage.removeItem("isWidget");
+  localStorage.removeItem("orderSuccess");
+  localStorage.removeItem("orderNumber");
+  localStorage.removeItem("cartSize");
+  localStorage.removeItem("customerId");
+  localStorage.removeItem("customerIdXpath");
+  localStorage.removeItem("local_count");
+  localStorage.removeItem("start_date");
+  localStorage.removeItem("registeredDate");
+}
+
+function enableStartSavingButton(mandatoryWidgetElementIds) {
+  let enable = false;
+  let countChecked = 0;
+  for (let i = 0; i < mandatoryWidgetElementIds.length; i++) {
+    if (
+      document.getElementById(mandatoryWidgetElementIds[i]).type ==
+        "checkbox" &&
+      document.getElementById(mandatoryWidgetElementIds[i]).checked
+    ) {
+      countChecked++;
+    }
+  }
+
+  if (countChecked == mandatoryWidgetElementIds.length) {
+    document.getElementById("startsaving").disabled = false;
+    document.getElementById("startsaving").style.opacity = "1.0";
+  } else {
+    document.getElementById("startsaving").disabled = true;
+    document.getElementById("startsaving").style.opacity = "0.5";
+  }
+}
+
+// Method to assign product unit type. If Karton the DU else CU.
+function assignProductUnitType(productDetails) {
+  if (productDetails === "Karton" || productDetails.includes("Karton")) {
+    return "DU";
+  }
+  return "CU";
+}
+
+localStorage.setItem("orderListenerAdded", false);
+
+function observeOrderButton() {
+  const observer = new MutationObserver(function (mutations) {
+    showWidgetAndProductLP();
+    orderButtonElement = getElementByXpath(orderButtonXpath);
+    if (
+      orderButtonElement != null &&
+      typeof orderButtonElement != "undefined" &&
+      localStorage.getItem("orderListenerAdded") == "false"
+    ) {
+      orderButtonElement.addEventListener("click", function (e) {
+        initiateOrderProcess();
+      });
+      localStorage.setItem("orderListenerAdded", true);
+    } else if (
+      orderButtonElement == null ||
+      typeof orderButtonElement == "undefined"
+    ) {
+      localStorage.setItem("orderListenerAdded", false);
+    }
+  });
+  const config = { subtree: true, childList: true };
+  observer.observe(document, config);
+}
+
+function getElementByXpath(path) {
+  let xValue = null;
+  try {
+    xValue = document.evaluate(
+      path,
+      document,
+      null,
+      XPathResult.FIRST_ORDERED_NODE_TYPE,
+      null,
+    ).singleNodeValue;
+  } catch (ex) {
+    console.error("Provided XPath expression is not valid.");
+  }
+  return xValue;
+}
+
+function initiateOrderProcess() {
+  collecCartData();
+  collectLoyaltyPoints();
+  detectOrder();
+}
+
+function getElementContentByXpath(path) {
+  let xValue = null;
+  try {
+    xValue = document.evaluate(
+      path,
+      document,
+      null,
+      XPathResult.FIRST_ORDERED_NODE_TYPE,
+      null,
+    ).singleNodeValue.content;
+  } catch (ex) {
+    console.error("Provided XPath expression is not valid.");
+  }
+  return xValue;
+}
+
+function getElementTextContentByXpath(path) {
+  let xValue = null;
+  try {
+    xValue = document.evaluate(
+      path,
+      document,
+      null,
+      XPathResult.FIRST_ORDERED_NODE_TYPE,
+      null,
+    ).singleNodeValue.textContent;
+  } catch (ex) {
+    console.error("Provided XPath expression is not valid.");
+  }
+  return xValue;
+}
+
+function getValidCustomerId(custId) {
+  let specialChars = /[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
+  let hasSpecialCharacters = specialChars.test(custId);
+  if (hasSpecialCharacters == true || custId == "null") {
+    return "";
+  }
+  return custId;
+}
+
+function prepareRegistrationDataJSON(
+  countryCode,
+  email,
+  businessName,
+  languageCode,
+  wholesalerCode,
+  newsletterSubscription,
+  customerId,
+) {
+  var registrationDateJSON = {};
+  registrationDateJSON.countryCode = countryCode;
+  registrationDateJSON.email = email;
+  registrationDateJSON.businessName = businessName;
+  registrationDateJSON.languageCode = languageCode;
+  registrationDateJSON.wholesalerCode = wholesalerCode;
+  registrationDateJSON.isNewsletterSubscribed = newsletterSubscription;
+  if (
+    customerId !== null ||
+    typeof customerId !== "undefined" ||
+    !customerId.length === 0
+  ) {
+    registrationDateJSON.customerId = customerId;
+  }
+  return registrationDateJSON;
+}
+if (typeof module !== "undefined" && module.exports) {
+module.exports = {
+      extractSingleItemLoyaltyPoints,
+      extractSingleItemLoyaltyPointsForQuantity,
+      extractCartonItemLoyaltyPoints,
+      extractCartonItemLoyaltyPointsForQuantity,
+      extractData,
+      getLoyaltyPoint,
+      getLoyaltyPointsTextTag,
+      getLoyaltyPointsText,
+      showTotalAndCurrentOrderLoyaltyPoint,
+      assignProductUnitType,
+  };
+}
+
+/**
+ * Loyalty widget contents based on language.
+ */
+var widgetTexts = {
+  my_en: {
+    business: "Business name",
+    mail: "Email",
+    tc: "I have read and agree to the <a href='https://www.unileverfoodsolutions.com.my/en/webshop-terms-and-conditions.html' target='_blank' style='color:#ff5501; text-decoration:none'>terms & conditions.</a>",
+    start: "Start Saving >",
+    errMail: "Please enter valid email ID",
+    errBusiness: "Please enter valid business name",
+    loyalHead: "Thank you for using our loyalty program",
+    loyalRes:
+      "Check your mailbox and log in (or register) on " +
+      "<a href='https://www.unileverfoodsolutions.com.my' target='_blank' style= 'color:#ff5501'>unileverfoodsolutions.be " +
+      "</a>to check your points balance.",
+    tc1: "I want to be kept informed of new products, recipes, cooking demos, inspiration and exclusive offers from Unilever Food Solutions via email and phone number.",
+    maxMsg: "Connect to ufs.com to save points.",
+    maxMsg2: "Connected to ufs.com. You are saving points.",
+    loadingLpText: "Loading earned loyalty points ...",
+  },
+  be_en: {
+    title: "You are only one step away from saving points!..",
+    mail: "Email",
+    tc: "I have read and agree to the <a href='https://www.unileverfoodsolutions.be/nl/voorwaarden.html' target='_blank' style='color:#ff5501; text-decoration:none'>terms & conditions.</a>",
+    start: "Start Saving",
+    errMail: "Please enter valid email ID",
+    errBusiness: "Please enter valid business name",
+    loyalHead: "Thank you for using our loyalty program",
+    loyalRes:
+      "Check your mailbox and log in (or register) on " +
+      "<a href='https://www.unileverfoodsolutions.be/nl.html' target='_blank' style= 'color:#ff5501'>unileverfoodsolutions.be " +
+      "</a>to check your points balance.",
+    tc1: "I want to be kept informed of new products, recipes, cooking demos, inspiration and exclusive offers from Unilever Food Solutions via email and phone number.",
+    maxMsg: "Connect to ufs.com to save points.",
+    maxMsg2: "Connected to ufs.com. You are saving points.",
+    loadingLpText: "Loading earned loyalty points",
+    successText:
+      "Happy! You have earned with this order. Total earned points is now",
+    failedText: "Failed to load earned loyalty points",
+  },
+  be_fr: {
+    title: "Vous êtes à un pas d'économiser des points !",
+    mail: "E-mail",
+    tc: "J'ai lu et j'accepte les <a href='https://www.unileverfoodsolutions.be/fr/modalites.html' target='_blank' style='color:#ff5501; text-decoration:none'>Conditions Générales.</a>",
+    start: "Commencer à économiser",
+    errMail: "Veuillez introduire une adresse e-mail correcte",
+    errBusiness: "Veuillez introduire un nom d'établissement correct",
+    loyalHead:
+      "Super, vous vous rapprochez un peu plus des meilleurs cadeaux !",
+    loyalRes:
+      "Rendez-vous sur le site " +
+      "<a href='http://stage.unileverfoodsolutions.be/fr/produits.html' target='_blank' style= 'color:#ff5501'>unileverfoodsolutions.be </a>" +
+      "pour consulter votre solde de points. Connectez-vous ou indentifiez-vous avec votre adresse e-mail.",
+    tc1: "J’aimerai être informé sur des nouveaux produits, des recettes, des démonstrations culinaires, de l’inspiration et des offres exclusives d’Unilever Food Solutions via e-mail et numéro de téléphone portable.",
+    maxMsg: "Connectez-vous à ufs.com pour économiser des points.",
+    maxMsg2: "Connecté à ufs.com. Vous économisez des points.",
+    loadingLpText: "Chargement des points de fidélité accumulés...",
+    successText:
+      "Félicitations! Vous avez gagné avec cette commande. Le total des points gagnés est maintenant",
+    failedText: "Impossible de charger les points de fidélité gagnés",
+  },
+  be_nl: {
+    title: "Je bent slechts één stap verwijderd van punten sparen!..",
+    mail: "E-mail",
+    tc: "Ik heb de <a href='https://www.unileverfoodsolutions.be/nl/voorwaarden.html' target='_blank' style='color:#ff5501; text-decoration:none'>Algemene Voorwaarden</a> gelezen en ga hiermee akkoord.",
+    start: "Start met sparen",
+    errMail: "Voer een correct e-mailadres in",
+    errBusiness: "Voer een geldige bedrijfsnaam in",
+    loyalHead: "Bedankt voor het gebruiken van ons loyaliteitsprogramma",
+    loyalRes:
+      "Bekijk je mailbox en log in (of registreer) op " +
+      "<a href='https://www.unileverfoodsolutions.be/nl.html' target='_blank' style= 'color:#ff5501'>unileverfoodsolutions.be </a> " +
+      "om je puntensaldo te bekijken.",
+    tc1: "Ik word graag op de hoogte gehouden over nieuwe producten, recepten, culinaire demo’s, inspiratie en exclusieve aanbiedingen door Unilever Food Solutions via e-mail en mobiel telefoonnummer.",
+    maxMsg: "Maak verbinding met ufs.com om punten te sparen.",
+    maxMsg2: "Verbonden met ufs.com. Je spaart punten.",
+    loadingLpText: "De verdiende Loyaliteitspunten laden",
+    successText:
+      "Gefeliciteerd! Je hebt verdiend met deze bestelling. Total verdiende punten is nu",
+    failedText: "Het laden van de verdiende Loyaliteitspunten is mislukt",
+  },
+  ch_de: {
+    business: "Firmenname",
+    mail: "Email",
+    tc: "Ich habe die <a href='https://www.unilevernotices.com/privacy-notices/switzerland-german.html' target='_blank' style='color:#ff5501; text-decoration:none'>Datenschutzhinweise</a> und <a href='https://www.unileverfoodsolutions.ch/de/allgemeine-geschaftsbedingungen.html' target='_blank' style='color:#ff5501; text-decoration:none'>Geschäftsbedingungen</a> gelesen und stimme ihnen zu.",
+    start: "Beginne, zu sparen >",
+    errMail: "Bitte geben Sie eine gültige E-Mail Adresse ein",
+    errBusiness: "Bitte geben Sie einen gültigen Firmennamen ein",
+    loyalHead: "Vielen Dank, dass Sie unser Treueprogramm nutzen.",
+    loyalRes:
+      "Vielen Dank, dass Sie unser Treueprogramm nutzen. " +
+      "<a href='https://www.unileverfoodsolutions.ch/de.html' target='_blank' style= 'color:#ff5501'>unileverfoodsolutions.ch " +
+      "</a>um Ihren Punktestand zu überprüfen.",
+    tc1: "Ich möchte über neue Produkte, Rezepte, Kochvorführungen, Inspiration und exklusive Angebote von Unilever Food Solutions per E-Mail und Telefon auf dem Laufenden gehalten werden.",
+    maxMsg: "Verbinden Sie sich mit ufs.com, um Punkte zu speichern.",
+    maxMsg2: "Verbunden mit ufs.com. Sie sparen Punkte.",
+    unSubscribeMsg:
+      "Nein, ich möchte keine Unilever Schweiz Treuepunkte sammeln",
+  },
+  de_de: {
+    business: "Firmenname",
+    mail: "Email",
+    tc: "Ich habe die <a href='https://www.unileverfoodsolutions.de/agb/agb.html' target='_blank' style='color:#ff5501; text-decoration:none'>Allgemeine Geschäftsbedingungen</a> gelesen und stimme ihnen zu.",
+    start: "Beginne, zu sparen >",
+    errMail: "Bitte geben Sie eine gültige E-Mail Adresse ein",
+    errBusiness: "Bitte geben Sie einen gültigen Firmennamen ein",
+    loyalHead: "Vielen Dank, dass Sie unser Treueprogramm nutzen.",
+    loyalRes:
+      "Vielen Dank, dass Sie unser Treueprogramm nutzen. Besuchen Sie " +
+      "<a href='https://www.unileverfoodsolutions.de' target='_blank' style= 'color:#ff5501'>unileverfoodsolutions.de " +
+      "</a>um Ihren Punktestand zu überprüfen.",
+    tc1: "Ich möchte über neue Produkte, Rezepte, Kochvorführungen, Inspiration und exklusive Angebote von Unilever Food Solutions per E-Mail und Telefon auf dem Laufenden gehalten werden.",
+    maxMsg: "Verbinden Sie sich mit ufs.com, um Punkte zu speichern.",
+    maxMsg2: "Verbunden mit ufs.com. Sie sparen Punkte.",
+  },
+};
+
+/**
+ * Loyalty widget  API config values
+ */
+var apiConfig = {
+  HTTP_TIMEOUT: "10000",
+  MaxInvokeCount: 5,
+  MinInvokeCount: 0,
+  minInterval: 10,
+};
+
+/**
+ * Loyalty widget  CSS config values
+ */
+var cssConfig = {
+  buttonActive: "#5C3657",
+  buttonDisabled: "#595959",
+  maxWidth: 100,
+};
+
+/**
+ * Order response widget parent div creation
+ */
+function orderResponseUI(countryCode, languageCode) {
+  var div1 = document.createElement("div");
+  div1.id = "final_div";
+  div1.style.position = "fixed";
+  div1.style.bottom = "40px";
+  div1.style.right = "15px";
+  div1.style.width = "450px";
+  div1.style.borderRadius = "15px";
+  div1.style.boxShadow = "0px 0px 2px 2px #d9d9d9";
+  div1.style.backgroundColor = "white";
+  div1.style.padding = "10px";
+  div1.style.zIndex = "99";
+  div1.style.display = "none";
+  document.body.appendChild(div1);
+
+  // =======================================================================================================================================================================
+
+  var orderResponseWidget = document
+    .getElementById("final_div")
+    .insertAdjacentHTML(
+      "beforeend",
+      '<strong id="orderResponseWidgetCancel" style="margin-top: -11px;cursor:pointer;color:gray;float:right;font-size: 20px;" onclick="closeResponse()">&times;</strong>' +
+        '<span id="orderResponseWidgetMinimize"style="cursor:pointer;color:gray;float:right;margin-top:-10px;margin-right:12px;transform:rotate(-90deg);font-size:15px"onclick="minimizeResponse()">&#10094;</span>' +
+        '<span id="orderResponseWidgetMaximize"style="display:none;cursor:pointer;color:gray;float:right;margin-top:-10px;margin-right:12px;transform:rotate(90deg);font-size:15px"onclick="maximizeResponse()">&#10094;</span>' +
+        '<div id="uni_item" style="display:none"><div><table style="width:100%"><tbody><tr>' +
+        '<th> <div id="cookSaveLogo" style="width:100px;height:35px; margin-bottom: 10px; visibility: visible"> <img src="" class = "ufs_logo" style="width:100%;height:100%;max-width:none;margin:5px;border-radius:5px;"></div></th>' +
+        '<th> <div id="finalImageLogo" style="width:100px;height:35px; margin-bottom: 10px"> <img src="" class="final_image" style="width:100%;height:100%;max-width:none;margin:5px;border-radius:5px;"></div></th>' +
+        '<th style="font-size:12px;text-align:left; padding: 0;margin: 0" id="uni">Thanks for using our loyalty programme</th></tr></tbody></table></div>' +
+        '<h5 class="total_loyalty_points">Loading earned loyalty points ...</h5>' +
+        '<div class="expand_response" style="margin-top:1%; font-size: 12px;text-align:justify">' +
+        '<p id="unimsg" style="margin: auto">Thank you for using our loyalty program! To view the points you have earned visit ' +
+        '<a href="https://www.unileverfoodsolutions.ch/de.html" target="_blank" style= "color:#ff5501">ufs.com' +
+        "</a> and login or enroll using your email</p></div></div>",
+    );
+
+  var h = document.getElementsByTagName("head").item(0);
+  var s = document.createElement("style");
+  s.type = "text/css";
+  s.appendChild(
+    document.createTextNode("#minimize{-webkit-transform:rotate(0deg);}"),
+  );
+  s.appendChild(
+    document.createTextNode("#maximize{-webkit-transform:rotate(90deg);}"),
+  );
+  s.appendChild(
+    document.createTextNode("#minimize1{-webkit-transform:rotate(-90deg);}"),
+  );
+  s.appendChild(
+    document.createTextNode("#maximize1{-webkit-transform:rotate(90deg);}"),
+  );
+  h.appendChild(s);
+
+  if (properties.hideCookSaveLogo) {
+    document.getElementById("cookSaveLogo").remove();
+  }
+  setOrderResponseUITextByCountryAndLangauge(countryCode, languageCode);
+}
+
+/**
+ * Order response widget parent div creation
+ */
+function orderResponseUIBe(countryCode, languageCode) {
+  let div = document.createElement("div");
+  let scriptPath = properties.scriptPath;
+  scriptPath = scriptPath.split("/");
+  let url = scriptPath[0] + "//" + scriptPath[2];
+
+  div.id = "final_div";
+  div.style.position = "fixed";
+  div.style.bottom = "25px";
+  div.style.right = "15px";
+  div.style.width = "295px";
+  div.style.zIndex = "99";
+  div.style.display = "none";
+  document.body.appendChild(div);
+
+  // =======================================================================================================================================================================
+
+  var orderResponseWidget = document
+    .getElementById("final_div")
+    .insertAdjacentHTML(
+      "beforeend",
+      `<div class="lp-widget-container darktheme-cls"  id="widget-container"> 
+       <div class="widget-header">
+        <div class="logo-cls">
+          <img id="lplogo-final" alt="Unilever" src="${url}/images/ufs_logo.svg">
+        </div>
+        <div class="title-cls">Loyalty program1</div>
+        <div class="icons-cls">
+          <img class="collapse-img" alt="minimize" id="minimize-final" onclick="minimizeWidgetBefinal('expand')" src="${url}/images/collapse-light.svg">
+		   <img class="collapse-img hide-cls" alt="maximize" id="maximize-final" onclick="maximizeWidgetBefinal('expand')" src="${url}/images/collapse-light.svg" style="transform: rotate(180deg);">
+          <img id="cancel-final" onclick="closeResponse()" class="close-img" src="${url}/images/close-light.svg" alt="close">
+        </div>
+      </div>
+      <div class="widget-body" id="expand-final">
+        <div class="widget-text-cls">
+          <p id="uni">Bedankt voor het gebruiken van ons loyaliteitsprogramma</p>
+        </div>
+        <div class="widget-form-cls" id="lp-widget-form">
+		  <span class="loader" id="lp-loader"></span>
+          <div id="loading-block" class="loading-block-cls hide-cls">
+            <p id="loading-text">Loading earned loyalty points</p>
+            <progress id="file" value="0" max="100"> 0% </progress>
+          </div>
+        </div>
+        <div class="widget-footer-cls">
+          <p class="redeem-block-cls" id="unimsg">
+            Visit
+            <a href="#" title="unileverfoodsolutions"
+              >unileverfoodsolutions.be</a
+            >
+            to redeem your loyalty program points
+          </p> 
+        </div>
+      </div>
+    </div>`,
+    );
+
+  var h = document.getElementsByTagName("head").item(0);
+  var s = document.createElement("style");
+  s.type = "text/css";
+  s.appendChild(
+    document.createTextNode("#minimize{-webkit-transform:rotate(-90deg);}"),
+  );
+  s.appendChild(
+    document.createTextNode("#maximize{-webkit-transform:rotate(90deg);}"),
+  );
+  s.appendChild(
+    document.createTextNode("#minimize1{-webkit-transform:rotate(-90deg);}"),
+  );
+  s.appendChild(
+    document.createTextNode("#maximize1{-webkit-transform:rotate(90deg);}"),
+  );
+  h.appendChild(s);
+
+  if (properties.hideCookSaveLogo) {
+    document.getElementById("cookSaveLogo").remove();
+  }
+  setOrderResponseUITextByCountryAndLangauge(countryCode, languageCode);
+}
+
+function setOrderResponseUITextByCountryAndLangauge(countryCode, languageCode) {
+  languageCode = languageCode.split("-")[0];
+  if (countryCode === "MY") {
+    switch (languageCode) {
+      case "en":
+        document.getElementById("uni").innerHTML = widgetTexts.my_en.loyalHead;
+        document.getElementById("unimsg").innerHTML =
+          widgetTexts.my_en.loyalRes;
+        break;
+    }
+  }
+  if (countryCode === "CH") {
+    switch (languageCode) {
+      case "de":
+        document.getElementById("uni").innerHTML = widgetTexts.ch_de.loyalHead;
+        document.getElementById("unimsg").innerHTML =
+          widgetTexts.ch_de.loyalRes;
+        break;
+    }
+  }
+  if (countryCode === "BE") {
+    switch (languageCode) {
+      case "en": {
+        document.getElementById("uni").innerHTML = widgetTexts.be_en.loyalHead;
+        document.getElementById("unimsg").innerHTML =
+          widgetTexts.be_en.loyalRes;
+        document.getElementById("loading-text").innerHTML =
+          widgetTexts.be_en.loadingLpText;
+        break;
+      }
+      case "fr": {
+        document.getElementById("uni").innerHTML = widgetTexts.be_fr.loyalHead;
+        document.getElementById("unimsg").innerHTML =
+          widgetTexts.be_fr.loyalRes;
+        document.getElementById("loading-text").innerHTML =
+          widgetTexts.be_fr.loadingLpText;
+        break;
+      }
+      default: {
+        document.getElementById("uni").innerHTML = widgetTexts.be_nl.loyalHead;
+        document.getElementById("unimsg").innerHTML =
+          widgetTexts.be_nl.loyalRes;
+        document.getElementById("loading-text").innerHTML =
+          widgetTexts.be_nl.loadingLpText;
+        break;
+      }
+    }
+  }
+  if (countryCode === "DE") {
+    switch (languageCode) {
+      case "de":
+        document.getElementById("uni").innerHTML = widgetTexts.de_de.loyalHead;
+        document.getElementById("unimsg").innerHTML =
+          widgetTexts.de_de.loyalRes;
+    }
+  }
+}
+
+/**
+ * This method will minimize the loyalty widget response widget.
+ */
+function minimizeResponse() {
+  [].forEach.call(document.querySelectorAll(".expand_response"), function (el) {
+    el.style["display"] = "none";
+  });
+  document.getElementById("orderResponseWidgetMinimize").style["display"] =
+    "none";
+  document.getElementById("orderResponseWidgetMaximize").style["display"] =
+    "block";
+  document.querySelector(".total_loyalty_points").style["display"] = "none";
+}
+
+/**
+ * This method will maximize the loyalty widget response widget.
+ */
+function maximizeResponse() {
+  [].forEach.call(document.querySelectorAll(".expand_response"), function (el) {
+    el.style["display"] = "block";
+  });
+  document.getElementById("orderResponseWidgetMinimize").style["display"] =
+    "block";
+  document.getElementById("orderResponseWidgetMaximize").style["display"] =
+    "none";
+  document.querySelector(".total_loyalty_points").style["display"] = "block";
+}
+
+function closeResponse() {
+  document.getElementById("final_div").style["display"] = "none";
+}
+
+var enrolled = localStorage.getItem("enrolled");
+
+function registerWidgetUI(countryCode, languageCode) {
+  var div = document.createElement("div");
+  div.id = "div";
+  div.style.position = "fixed";
+  div.style.bottom = "25px";
+  div.style.right = "15px";
+  div.style.width = "225px";
+  div.style.boxShadow = "0px 0px 2px 2px #d9d9d9";
+  div.style.borderRadius = "2px";
+  div.style.backgroundColor = "#e6e6e6";
+  div.style.zIndex = "99";
+  div.style.display = "none";
+  document.body.appendChild(div);
+
+  // widget content creation
+  var wid = document
+    .getElementById("div")
+    .insertAdjacentHTML(
+      "beforeend",
+      '<strong id="cancel" style="display:none;cursor:pointer;color:gray;float:right;margin-right:10px;font-size: 20px;margin-top: -2px;" onclick="closeWidget()">&times;</strong>' +
+        '<span id="minimize"style="display:none;cursor:pointer;color:gray;float:right;margin-right:12px;transform:rotate(-90deg);font-size:15px"onclick="minimize()">&#10094;</span>' +
+        '<span id="maximize"style="display:none;cursor:pointer;color:gray;float:right;margin-right:12px;transform:rotate(90deg);font-size:15px"onclick="maximize()">&#10094;</span>' +
+        '<div id="init_content" onclick="maximize()" style="background-color:white;padding: 5px;color: black;box-shadow: grey 1px 1px 1px 1px;border-radius: 5px;display: block;overflow: hidden;opacity: 0.7;cursor: pointer;margin: 3%;">' +
+        '<div style="float: left;width: 15%;text-align: right;padding-top: 2%;"><span id="dot" style="height: 15px;width: 15px;background-color: #336600;border-radius: 50%;display: inline-block;">' +
+        '</span></div><div id="connected_user" style="float:right;width: 75%;font-size: 12px;line-height: 1;font-weight: 600;"></div></div><div id="expand" style="padding:10px;display:none">' +
+        "<div><table><tbody><tr>" +
+        '<th> <div id="cookSaveLogo" style="width:100px;height:35px; margin-bottom: 10px; margin-right: -30px; visibility: visible"> <img src="" class="ufs_logo" style="width:75px;height:35px;"> </div></th>' +
+        '<th> <a id="link_to_lp_program"> <div id="finalImageLogo" style="width:100px;height:35px; margin-bottom: 10px;"> <img src="" class="final_image" style="width:75px;height:35px;"> </div></a></th>' +
+        '<th> <div id="msg" class="lp_text"> </div></th>' +
+        "</tr></tbody></table></div>" +
+        '<div><div style="font-size: 12px;padding-left: 2%; margin-bottom:5px"><p id="main_msg" style="color:black; margin: auto"></p></div>' +
+        '<form><div id="business_name" style="margin-bottom:1%;width: 95%;">' +
+        '<input type="text" id="name" oninput="validateBusinessName(this.value)" placeholder="Business name*" style="width: 100%;padding: 5px;border-radius: 5px;font-size:12px;border: 2px solid #e6e6e6">' +
+        '<span id="er1" style="display:none;color:red;font-size:12px;float:right;margin-right: 6px;margin-top: -23px;position: relative;z-index: 2;">&#10006;</span>' +
+        '<span id="tic1" style="display:none;color:green;font-size:12px;float:right;margin-right: 6px;margin-top: -23px;position: relative;z-index: 2;">&#10004;</span></div>' +
+        '<div id="err1" style="color:#ff5501;display:none;margin-bottom:1%;font-size:12px">Please provide business name</div>' +
+        '<div id="mailing_address" style="width:95%"><input type="text" id="mail" oninput="validateEmail(this.value)" placeholder="Email*" style="width:100%;padding:5px;border-radius: 5px;font-size:12px;border: 2px solid #e6e6e6">' +
+        '<span id="er2" style="display:none;color:red;font-size:12px;float:right;margin-right: 6px;margin-top: -23px;position: relative;z-index: 2;">&#10006;</span>' +
+        '<span id="tic2" style="display:none;color:green;font-size:12px;float:right;margin-right: 6px;margin-top: -23px;position: relative;z-index: 2;">&#10004;</span></div>' +
+        '<div id="err" style="color:#ff5501; display:none;font-size:12px">Please enter a valid email ID</div>' +
+        '<div id="checkbox1" style="margin-top: 3%;display: block;"><div style="float:left"><input type="checkbox" id="check_box1" onclick="checkstatus()" style="all: revert; border: 2px solid #e6e6e6"></div>' +
+        '<div style="font-size:12px;color:black;margin-bottom:5px;margin-left: 8px;"><label id="tc1" style="margin-left: 10px;display: block; font-weight:400;">' +
+        "I want to be kept informed of new products, recipes, cooking demos, inspiration and exclusive offers from Unilever Food Solutions via email and phone number." +
+        "</label></div></div>" +
+        '<div id="checkbox" style="margin-top: 2%; display: block;">' +
+        '<div style="float:left"><input type="checkbox" id="check_box" onclick="checkstatus()" style="all: revert; border: 2px solid #e6e6e6"></div><div style="font-size:12px;color:black; margin-bottom:5px; margin-left: 8px;"><label id="tc" style="margin-left:10px; display: block; font-weight:400;">I have read and agree to the ' +
+        '<a href="https://www.unileverfoodsolutions.be/nl/voorwaarden.html" target="_blank" style="color:#ff5501; text-decoration:none">terms & conditions.*</a></label></div>' +
+        '</div>	<button type="button" class="no-redirect" id="startsaving" style="cursor:pointer;opacity:0.5;border:none;padding:5px;background-color:#ff5501;color:white; width:100%;border-radius:5px"onclick="enroll()" disabled>Start saving <span>&#10095;</span></button></form></div></div>',
+    );
+  if (typeof properties.linkToLpProgram !== "undefined") {
+    document.getElementById("link_to_lp_program").href =
+      properties.linkToLpProgram;
+    document.getElementById("link_to_lp_program").target = "_blank";
+  }
+
+  var h = document.getElementsByTagName("head").item(0);
+  var s = document.createElement("style");
+  s.type = "text/css";
+  s.appendChild(
+    document.createTextNode("#minimize{-webkit-transform:rotate(-90deg);}"),
+  );
+  s.appendChild(
+    document.createTextNode("#maximize{-webkit-transform:rotate(90deg);}"),
+  );
+  h.appendChild(s);
+  if (properties.hideCookSaveLogo) {
+    document.getElementById("cookSaveLogo").remove();
+  }
+  setRegisterWidgetUITextByCountryAndLangauge(countryCode, languageCode);
+}
+
+function registerWidgetUIBe(countryCode, languageCode) {
+  let div = document.createElement("div");
+  div.id = "div";
+  div.style.position = "fixed";
+  div.style.bottom = "25px";
+  div.style.right = "15px";
+  div.style.width = "295px";
+  div.style.borderRadius = "2px";
+  div.style.zIndex = "99";
+  div.style.display = "none";
+  document.body.appendChild(div);
+
+  scriptPath = properties.scriptPath.split("/");
+  let url = scriptPath[0] + "//" + scriptPath[2];
+
+  let wid = document.getElementById("div").insertAdjacentHTML(
+    "beforeend",
+    ` <div id="widget-container" class="lp-widget-container darktheme-cls">
+      <div class="widget-header">
+        <div class="logo-cls">
+          <img id="lplogo" alt="Unilever" src="${url}/images/ufs_logo.svg" />
+        </div>
+        <div class="title-cls">Loyalty program</div>
+        <div class="icons-cls">
+          <img class="collapse-img"            
+            alt="minimize" src="${url}/images/collapse-light.svg"
+			id="minimize" onclick="minimizeWidgetBe('expand')"
+          />
+		   <img class="collapse-img"            
+            alt="maximize" src="${url}/images/collapse-light.svg"
+			id="maximize" onclick="maximizeWidgetBe('expand')"
+          />
+          <img id="cancel" onclick="closeWidget()" src="${url}/images/close-light.svg" class="close-img" src="" alt="close" />
+        </div>
+      </div>
+      <div  class="widget-body" id="expand">
+        <div id="main_msg" class="widget-text-cls">
+          Je bent slechts één stap verwijderd van punten sparen!..
+        </div>
+        <div class="hide-cls" id="connected_user"></div>
+        <div class="widget-form-cls">
+          <form>
+            <div class="email-block-cls">
+              <input id="mail" type="text" placeholder="E-mail" onblur="validateFormField(this.value)" />
+              <span id="err" class="lperror-cls">Voer een correct e-mailadres in</span>
+            </div>
+            <div class="condition-wrap-cls">
+              <div><input type="checkbox" id="check_box1" onclick="checkstatusbl()" /></div>
+              <label id="tc1" for="check_box1">
+                Ik word graag op de hoogte gehouden over nieuwe producten,
+                recepten, culinaire demo’s, inspiratie en exclusieve
+                aanbiedingen door Unilever Food Solutions via e-mail en mobiel
+                telefoonnummer.</label
+              >
+            </div>
+            <div class="condition-wrap-cls">
+              <div><input type="checkbox" id="check_box" onclick="checkstatusbl()" /></div>
+              <label id="tc" for="check_box">
+                Ik heb de Algemene Voorwaarden gelezen en ga hiermee
+                akkoord.</label
+              >
+            </div>
+          </form>
+        </div>
+        <div class="widget-footer-cls">
+          <button type="button" class="save-btn-cls" id="startsaving" onclick="enrollbl()">
+            Start met sparen.
+          </button>
+        </div>
+      </div>
+    </div>`,
+  );
+
+
+  if (typeof properties.linkToLpProgram !== "undefined") {
+    document.getElementById("link_to_lp_program").href =
+      properties.linkToLpProgram;
+    document.getElementById("link_to_lp_program").target = "_blank";
+  }
+
+  var h = document.getElementsByTagName("head").item(0);
+  var s = document.createElement("style");
+  s.type = "text/css";
+  s.appendChild(
+    document.createTextNode("#minimize{-webkit-transform:rotate(0deg);}"),
+  );
+  s.appendChild(
+    document.createTextNode("#maximize{-webkit-transform:rotate(90deg);}"),
+  );
+  h.appendChild(s);
+  if (properties.hideCookSaveLogo) {
+    document.getElementById("cookSaveLogo").remove();
+  }
+  setRegisterWidgetUITextByCountryAndLangauge(countryCode, languageCode);
+}
+
+function setRegisterWidgetUITextByCountryAndLangauge(
+  countryCode,
+  languageCode,
+) {
+  languageCode = languageCode.split("-")[0];
+  if (countryCode === "CH") {
+    switch (languageCode) {
+      case "de":
+        document.getElementById("name").placeholder =
+          widgetTexts.ch_de.business;
+        document.getElementById("mail").placeholder = widgetTexts.ch_de.mail;
+        document.getElementById("tc").innerHTML = widgetTexts.ch_de.tc;
+        document.getElementById("err1").innerHTML =
+          widgetTexts.ch_de.errBusiness;
+        document.getElementById("err").innerHTML = widgetTexts.ch_de.errMail;
+        document.getElementById("startsaving").innerText =
+          widgetTexts.ch_de.start;
+        document.getElementById("tc1").innerHTML = widgetTexts.ch_de.tc1;
+        if (enrolled == "true") {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.ch_de.maxMsg2;
+        } else {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.ch_de.maxMsg;
+        }
+    }
+  }
+  if (countryCode === "BE" || countryCode === "NL") {
+    switch (languageCode) {
+      case "nl":
+        document.getElementById("main_msg").innerHTML = widgetTexts.be_nl.title;
+        document.getElementById("mail").placeholder = widgetTexts.be_nl.mail;
+        document.getElementById("tc").innerHTML = widgetTexts.be_nl.tc;
+        document.getElementById("err").innerHTML = widgetTexts.be_nl.errMail;
+        document.getElementById("startsaving").innerText =
+          widgetTexts.be_nl.start;
+        document.getElementById("tc1").innerHTML = widgetTexts.be_nl.tc1;
+        if (enrolled == "true") {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.be_nl.maxMsg2;
+        } else {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.be_nl.maxMsg2;
+        }
+        break;
+      case "fr":
+        document.getElementById("mail").placeholder = widgetTexts.be_fr.mail;
+        document.getElementById("tc").innerHTML = widgetTexts.be_fr.tc;
+        document.getElementById("err").innerHTML = widgetTexts.be_fr.errMail;
+        document.getElementById("startsaving").innerText =
+          widgetTexts.be_fr.start;
+        document.getElementById("tc1").innerHTL = widgetTexts.be_fr.tc1;
+        if (enrolled == "true") {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.be_fr.maxMsg2;
+        } else {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.be_fr.maxMsg;
+        }
+        break;
+      case "en":
+        document.getElementById("mail").placeholder = widgetTexts.be_en.mail;
+        document.getElementById("tc").innerHTML = widgetTexts.be_en.tc;
+        document.getElementById("err").innerHTML = widgetTexts.be_en.errMail;
+        document.getElementById("startsaving").innerText =
+          widgetTexts.be_en.start;
+        document.getElementById("tc1").innerHTML = widgetTexts.be_en.tc1;
+        if (enrolled == "true") {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.be_en.maxMsg2;
+        } else {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.be_en.maxMsg;
+        }
+    }
+  }
+  if (countryCode === "DE") {
+    switch (languageCode) {
+      case "de":
+        document.getElementById("name").placeholder =
+          widgetTexts.de_de.business;
+        document.getElementById("mail").placeholder = widgetTexts.de_de.mail;
+        document.getElementById("tc").innerHTML = widgetTexts.de_de.tc;
+        document.getElementById("err1").innerHTML =
+          widgetTexts.de_de.errBusiness;
+        document.getElementById("err").innerHTML = widgetTexts.de_de.errMail;
+        document.getElementById("startsaving").innerText =
+          widgetTexts.de_de.start;
+        document.getElementById("tc1").innerHTML = widgetTexts.de_de.tc1;
+        if (enrolled == "true") {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.de_de.maxMsg2;
+        } else {
+          document.getElementById("connected_user").innerHTML =
+            widgetTexts.de_de.maxMsg;
+        }
+    }
+  }
+  if (countryCode === "MY") {
+    switch (languageCode) {
+      case "en":
+        document.getElementById("name").placeholder =
+          widgetTexts.my_en.business;
+        document.getElementById("mail").placeholder = widgetTexts.my_en.mail;
+        document.getElementById("tc").innerHTML = widgetTexts.my_en.tc;
+        document.getElementById("err1").innerHTML =
+          widgetTexts.my_en.errBusiness;
+        document.getElementById("err").innerHTML = widgetTexts.my_en.errMail;
+        document.getElementById("startsaving").innerText =
+          widgetTexts.my_en.start;
+        document.getElementById("tc1").innerHTML = widgetTexts.my_en.tc1;
+        if (enrolled == "true") {
+          document.getElementById("max_msg").innerHTML =
+            widgetTexts.my_en.maxMsg2;
+        } else {
+          document.getElementById("max_msg").innerHTML =
+            widgetTexts.my_en.maxMsg;
+        }
+    }
+  }
+}
+
+function minimize() {
+  document.getElementById("cancel").style["display"] = "none";
+  document.getElementById("expand").style["display"] = "none";
+  document.getElementById("minimize").style["display"] = "none";
+  document.getElementById("init_content").style["display"] = "block";
+  document.getElementById("div").style["width"] = "225px";
+  document.getElementById("div").style["borderRadius"] = "2px";
+  document.getElementById("div").style["backgroundColor"] = "#e6e6e6";
+}
+
+function maximize() {
+  document.getElementById("div").style["width"] = "275px";
+  document.getElementById("div").style["borderRadius"] = "15px";
+  document.getElementById("div").style["backgroundColor"] = "white";
+  document.getElementById("div").style["boxShadow"] = "0px 0px 2px 2px #d9d9d9";
+  document.getElementById("expand").style["display"] = "block";
+  document.getElementById("minimize").style["display"] = "block";
+  document.getElementById("maximize").style["display"] = "none";
+  document.getElementById("init_content").style["display"] = "none";
+  document.getElementById("cancel").style["display"] = "block";
+}
+
+// =======================================================================================================================================================================
+
+/**
+ * This method will validate the email id provided by customer in the loyalty widget.
+ *
+ * @param {value of email field} emailField
+ * @returns true if validated successfully or else false.
+ */
+
+function validateEmail(emailField) {
+  document.getElementById("err").style["display"] = "none";
+  document.getElementById("er2").style["display"] = "none";
+  var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  if (reg.test(emailField) === false) {
+    document.getElementById("tic2").style["display"] = "none";
+    return false;
+  } else {
+    document.getElementById("tic2").style["display"] = "block";
+    return true;
+  }
+}
+
+// =======================================================================================================================================================================
+
+/**
+ * This method will validate the business name provided by customer in the loyalty widget.
+ *
+ * @param {value of email field} emailField
+ * @returns true if validated successfully or else false.
+ */
+function validateBusinessName(nameField) {
+  document.getElementById("err1").style["display"] = "none";
+  document.getElementById("er1").style["display"] = "none";
+  if (nameField === "") {
+    document.getElementById("tic1").style["display"] = "none";
+    return false;
+  } else {
+    document.getElementById("tic1").style["display"] = "block";
+    return true;
+  }
+}
+
+// =======================================================================================================================================================================
+
+/**
+ * This method will validate the checkbox for terms & conditions available in loyalty widget.
+ */
+function checkstatus() {
+  enableStartSavingButton(properties.mandatoryWidgetElementIds);
+}
+
+/**
+ * new template generic method's
+ */
+
+function validateFormField(emailField) {
+  let scriptPath = properties.scriptPath;
+  scriptPath = scriptPath.split("/");
+  let url = scriptPath[0] + "//" + scriptPath[2];
+  document.getElementById("err").style["display"] = "none";
+  if (validateEmailField(emailField) === false) {
+    document.getElementById("mail").style.backgroundImage =
+      `url("${url}/images/close-err.svg")`;
+    document.getElementById("err").style["display"] = "block";
+    return false;
+  }
+  document.getElementById("mail").style.backgroundImage =
+    `url("${url}/images/validated.svg")`;
+  document.getElementById("err").style["display"] = "none";
+  return true;
+}
+
+function validateEmailField(email) {
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const isValid = emailPattern.test(email);
+  return isValid;
+}
+
+function enableStartSavingButtonBe(mandatoryWidgetElementIds) {
+  let enable = false;
+  let countChecked = 0;
+  for (let i = 0; i < mandatoryWidgetElementIds.length; i++) {
+    if (
+      document.getElementById(mandatoryWidgetElementIds[i]).type ==
+        "checkbox" &&
+      document.getElementById(mandatoryWidgetElementIds[i]).checked
+    ) {
+      countChecked++;
+    }
+  }
+
+  if (countChecked == mandatoryWidgetElementIds.length) {
+    document.getElementById("startsaving").disabled = false;
+    document.getElementById("startsaving").style.backgroundColor =
+      cssConfig.buttonActive;
+    document.getElementById("startsaving").style.pointerEvents = "all";
+  } else {
+    document.getElementById("startsaving").disabled = true;
+    document.getElementById("startsaving").style.backgroundColor =
+      cssConfig.buttonDisabled;
+    document.getElementById("startsaving").style.pointerEvents = "none";
+  }
+}
+
+function checkstatusbl() {
+  enableStartSavingButtonBe(properties.mandatoryWidgetElementIds);
+}
+
+function minimizeWidget() {
+  document.getElementById("expand").style["display"] = "none";
+  document.getElementById("minimize").style["display"] = "none";
+  document.getElementById("maximize").style["display"] = "block";
+}
+function maximizeWidget() {
+  document.getElementById("expand").style["display"] = "block";
+  document.getElementById("minimize").style["display"] = "block";
+  document.getElementById("maximize").style["display"] = "none";
+}
+function minimizeWidgetBe(val) {
+  let cls = document.getElementById("minimize").className;
+  if (cls == "collapse-img") {
+    document.getElementById("expand").style["display"] = "none";
+    document.getElementById("minimize").style["display"] = "none";
+    document.getElementById("maximize").style["display"] = "block";
+    const widgethead = document.getElementsByClassName("widget-header");
+    widgethead[0].style.borderRadius = "8px";
+    const widgetcntainer = document.getElementById("widget-container");
+    widgetcntainer.style.border = "0";
+  } else {
+    document.getElementById("init_content").style["display"] = "none";
+    document.getElementById("minimize").style["display"] = "none";
+    document.getElementById("maximize").style["display"] = "block";
+    const widgethead = document.getElementsByClassName("widget-header");
+    widgethead[0].style.borderRadius = "8px";
+    const widgetcntainer = document.getElementById("widget-container");
+    widgetcntainer.style.border = "0";
+  }
+}
+function maximizeWidgetBe(val) {
+  let cls = document.getElementById("minimize").className;
+  if (cls == "collapse-img") {
+    document.getElementById("expand").style["display"] = "block";
+    document.getElementById("minimize").style["display"] = "block";
+    document.getElementById("maximize").style["display"] = "none";
+    const widgethead = document.getElementsByClassName("widget-header");
+    widgethead[0].style.borderRadius = "8px 8px 0 0";
+    const widgetcntainer = document.getElementById("widget-container");
+    widgetcntainer.style.border = "1px solid rgba(255, 255, 255, 1)";
+  } else {
+    document.getElementById("init_content").style["display"] = "block";
+    document.getElementById("minimize").style["display"] = "block";
+    document.getElementById("maximize").style["display"] = "none";
+    const widgethead = document.getElementsByClassName("widget-header");
+    widgethead[0].style.borderRadius = "8px 8px 0 0";
+    const widgetcntainer = document.getElementById("widget-container");
+    widgetcntainer.style.border = "1px solid rgba(255, 255, 255, 1)";
+  }
+}
+
+function minimizeWidgetBefinal(val) {
+  let cls = document.getElementById("minimize-final").className;
+  if (cls == "collapse-img") {
+    document.getElementById("expand-final").style["display"] = "none";
+    document.getElementById("minimize-final").style["display"] = "none";
+    document.getElementById("maximize-final").style["display"] = "block";
+    let eleMaximize = document.getElementById("maximize-final");
+    eleMaximize.classList.remove("hide-cls");
+  }
+}
+function maximizeWidgetBefinal(val) {
+  let cls = document.getElementById("minimize-final").className;
+  if (cls == "collapse-img") {
+    document.getElementById("expand-final").style["display"] = "block";
+    document.getElementById("minimize-final").style["display"] = "block";
+    document.getElementById("maximize-final").style["display"] = "none";
+  }
+}
+
+function clearWidgetContent() {
+  const element = document.getElementById("expand");
+  element.classList.add("hide-cls");
+  let eleMinimize = document.getElementById("minimize");
+  eleMinimize.classList.add("minimize-cls");
+  let eleMaximize = document.getElementById("maximize");
+  eleMaximize.classList.add("maximize-cls");
+  let userState = document.getElementById("connected_user").innerHTML;
+  let conected = `<div  class="widget-body" id="init_content">
+        <div class="widget-text-cls">
+          ${userState}
+        </div></div>`;
+
+  document
+    .getElementById("widget-container")
+    .insertAdjacentHTML("beforeend", conected);
+  minimizeWidgetBe("expand");
+}
+
+function enrollbl() {
+  var userId = document.getElementById("mail").value;
+  var business_name = "UFS";
+  var e = validateFormField(userId);
+  if (e && business_name != "") {
+    minimizeWidget();
+    registerUser(userId, business_name);
+    clearWidgetContent();
+  } else {
+    if (!e) {
+      document.getElementById("err").style["display"] = "block";
+    }
+  }
+}
+
+function getProductCode(ws_id) {
+  const products = mapper.products;
+  var productCode = 0;
+  for (var i = 0; i < products.length; i++) {
+    if (products[i].ws_id == ws_id) {
+      return products[i].prod_id.toString();
+    }
+  }
+  return productCode.toString();
+}
+
+window.onload = function() {
+    let path = window.location.pathname;
+    let isUserLoggedInZorg = isUserLoggedInZorgFn();
+    let isUserRegisteredWithF1 = localStorage.getItem("enrolled");
+    
+    callLoyaltyWidgetApi(properties.wholesalerCode, properties.languageCode, function(response){
+        localStorage.setItem("loyaltyPointsTextPattern",response.loyaltyPointsTextPattern);
+    });
+
+    if(path == "/" && isUserLoggedInZorg == true){
+        //CountryCode of ZORG is NL, need to check if it will work or not.				
+        registerWidgetUIBe(properties.countryCode,properties.languageCode);
+        document.getElementById("div").style["display"]="block";
+    }
+
+    if(path == "/checkout/cart" && isUserLoggedInZorg == true){
+        registerWidgetUIBe(properties.countryCode,properties.languageCode);
+        if(isUserRegisteredWithF1 == true){
+            clearWidgetContent();
+        }
+        document.getElementById("div").style["display"]="block";
+
+        //show bubbles on the cart items and also store in localstorage all the cart items
+        let productCodes = collectCartProductCodes();
+        showBubblesOnCartItems(productCodes);
+        saveCartProductInLocalStorage();
+    }
+
+    if(path == "/checkout/finish" && isUserLoggedInZorg == true){
+			        registerWidgetUIBe(properties.countryCode,properties.languageCode);
+
+        //path is not exactly orderSuccess, need to check on acceptance website
+        //collect scanned items from localstorage 
+        //and call order api and then display order response widget
+    }
+
+    if(path == "/zoeken"){
+        loadLoyaltyPointsForUnileverProducts();
+        //everytime the pagenumber is pressed, the method should be called to display lp.
+        let pageNumberButtons = document.querySelectorAll(".page-button");
+        pageNumberButtons.forEach(function(button){
+            button.addEventListener("click",loadLoyaltyPointsForUnileverProducts);
+        });
+    }
+}
+
+function isUserLoggedInZorgFn(){
+    let logginAnchorHtmlTag = document.querySelector('.account').title;
+    if(logginAnchorHtmlTag == "Inloggen"){
+        return false;
+    }
+    return true;
+}
+

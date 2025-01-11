@@ -1,0 +1,42 @@
+var properties = {
+  scriptPath:
+    "https://f1stageaccountstorage.blob.core.windows.net/wholesalers/zorgboodschap/",
+  f1BaseApi: "https://www.f1-stage.com",
+  lpVisibility: true,
+  showProductsLP: true,
+  countryCode: "NL",
+  languageCode: "nl",
+  wholesalerCode: "ZORG",
+  hiddenWidgetEndpoints: ["/login"],
+  mainWidgetId: "div",
+  hideWidgetOnClosedCount: 1,
+  numberOfDaysToHideWidgetOnClosed: 999999,
+  hideCookSaveLogo: false,
+  mandatoryWidgetElementIds: ["check_box"],
+  numberOfDaysToClearLocalStorage: 1,
+};
+
+const version = "3.0.6";
+loadJavaScripts("loyalty_widget-" + version);
+
+if (properties.lpVisibility == true) {
+  loadCss(properties.scriptPath + "style");
+  loadCss(
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min",
+  );
+}
+
+function loadJavaScripts(script) {
+  var imported = document.createElement("script");
+  imported.type = "text/javascript";
+  imported.src = properties.scriptPath + script + ".js";
+  document.head.appendChild(imported);
+}
+
+function loadCss(styleUrl) {
+  var element = document.createElement("link");
+  element.setAttribute("rel", "stylesheet");
+  element.setAttribute("type", "text/css");
+  element.setAttribute("href", styleUrl + ".css");
+  document.getElementsByTagName("head")[0].appendChild(element);
+}
